@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+    <title>RESPONSIVE TABLE</title>
+</head>
+<body>
+    <div class="currency-toggler">
+        <span>INR</span>
+        <div class="toggler"></div>
+        <span>USD</span>
+    </div>
+    <section class="pricing">
+        <div class="card_wrapper">
+            <!--card header-->
+            <div class="card_header">
+                <img src="images/download11.jpg">
+                <h2>BASIC</h2>
+            </div>
+            <!--card details-->
+            <div class="card_details">
+                <p> <span class="fas fa-check check"></span><b>1</b> Complete user only</p>
+                <p> <span class="fas fa-check check"></span><b>2</b> free certifications </p>
+                <p> <span class="fas fa-times nocheck"></span> Laptop access</p>
+             </div>
+             <!--card_pricing-->
+             <div class="card_pricing">
+                <span class="dollar">$</span>
+                <span class="price">10</span>
+             </div>
+             <!--button-->
+             <button class="card_button">GET IT NOW</button>
+        </div>
+       
+        <div class="card_wrapper">
+            <div class="card_header">
+                <img src="images/download2.jpg">
+                <h2>INTERMEDIATE</h2>
+            </div>
+            <div class="card_details">
+                <p> <span class="fas fa-check check"></span><b>2</b> complete users </p>
+                <p> <span class="fas fa-check check"></span><b>5</b> free certifications </p>
+                <p> <span class="fas fa-times nocheck"></span> Laptop access </p>
+
+            </div>
+            <div class="card_pricing">
+                <span class="dollar">$</span>
+                <span class="price">15</span>
+            </div>
+            <button class="card_button">GET IT NOW</button>
+
+        </div>
+        <div class="card_wrapper">
+            <div class="card_header">
+                <img src="images/download3.jpg">
+                <h2>ADVANCED</h2>
+            </div>
+            <div class="card_details">
+                <p> <span class="fas fa-check check"></span><b>3</b> complete users</p>
+                <p> <span class="fas fa-check check"></span><b>7</b> free certifications  </p>
+                <p> <span class="fas fa-check check"></span> Laptop access </p>
+
+            </div>
+            <div class="card_pricing">
+                <span class="dollar">$</span>
+                <span class="price">25</span>
+            </div>
+            <button class="card_button">GET IT NOW</button>
+
+        </div>
+        
+    </section>
+    <script>
+        let toggler = document.querySelector('.toggler');
+        let price = document.querySelectorAll('.price');
+        let dollar = document.querySelectorAll('.dollar');
+        let usd= 83.14;
+        toggler.onclick = () => {
+            toggler.classList.toggle('active');
+            if(toggler.classList.contains('active')){
+                for (var i = 0; i < dollar.length; i++) {
+                    dollar[i].innerText= 'Rs';
+                    
+                }
+                for ( var k = 0; k< price.length; k++) {
+                    price[k].innerText= (price[k].innerText * usd).toFixed(2);
+                    
+                }
+            }else{
+                for (var i = 0; i < dollar.length; i++) {
+                    dollar[i].innerText='$';
+                    
+                }
+                for ( var k = 0;k< price.length; k++) {
+                    price[k].innerText= (price[k].innerText / usd).toFixed(2);
+                    
+                }
+            }
+        }
+    </script>
+</body>
+</html>
